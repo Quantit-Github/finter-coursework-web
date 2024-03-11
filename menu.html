@@ -1,61 +1,111 @@
 <html>
-    <head>
-        <style>
-            body{
-                background-color: rgb(42, 51, 76);
-                margin: 0px;
-                padding: 20px 10px;
-            }
-            body > h2{
-                margin-bottom: 10px;
-                padding-top: 10px;
-                margin-top: 10px;
-                color: white;
-                border-top: 1px solid white;
-            }
-            ul{
-                margin: 0px;
-                margin-bottom: 20px;
-                list-style:none;
-                padding-left: 15px;
+<head>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QP2JQDB2X9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            }
-            li{
-                padding: 5px 0px;
-            }
-            a{
-                text-decoration: none;
-                color: white;
-            }
-        </style>
-    </head>
-    <body>
-        <h2>How to Finter!</h2>
-        <ul>
-            <li> <a href="https://quantit.gitbook.io/finter/" target="_blank">Quick Start</a></li>
-            <li> <a href="https://quantit.gitbook.io/finter/v/research-guide/" target="_blank">Quantitative Research Handbook</a></li>
-            <li> <a href="https://quantit.gitbook.io/finter/v/help-center/faq/content-model-data" target="_blank">FAQ</a></li>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
-        </ul>
+        gtag('js', new Date());
 
-        <h2>Jupyterhub</h2>
-        <ul>
-            <li> <a href="https://jupyter.snu.finter.bot" target="_blank">Jupyter</a></li>
-        </ul>
+        gtag('config', 'G-QP2JQDB2X9');
+    </script>
 
-        <h2>Content</h2>
-        <ul>
-            <li> <a href="https://cm.dashboard.finter.quantit.io/" target="right">CM Search</a></li>
-        </ul>
-        <h2>Alpha</h2>
-            <ul>
-                <li> <a href="https://model.dashboard.finter.quantit.io/" target="right">Dashboard</a></li>
-                <li> <a href="https://performance.dashboard.finter.quantit.io/" target="right">Performance</a></li>
-            </ul>
-        <h2>Portfolio</h2>
-            <ul>
-                <li> <a href="https://pfmodel.dashboard.finter.quantit.io/" target="right">Dashboard</a></li>
-                <li> <a href="https://pfperformance.dashboard.finter.quantit.io/" target="right">Performance</a></li>
-            </ul>
-    </body>
+    <style>
+        body {
+            background-color: rgb(42, 51, 76);
+            margin: 0px;
+            padding: 20px 10px;
+        }
+
+        body > h2 {
+            margin-bottom: 10px;
+            padding-top: 10px;
+            margin-top: 10px;
+            color: white;
+            border-top: 1px solid white;
+        }
+
+        ul {
+            margin: 0px;
+            margin-bottom: 20px;
+            list-style: none;
+            padding-left: 15px;
+
+        }
+
+        li {
+            padding: 5px 0px;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h2>How to Finter!</h2>
+<ul>
+    <li>
+        <a href="https://quantit.gitbook.io/finter/" target="_blank" data-event-category="how_to_finter"
+           data-event-action="quick-start-click">Quick Start</a></li>
+    <li>
+        <a href="https://quantit.gitbook.io/finter/v/research-guide/" target="_blank"
+           data-event-category="how_to_finter" data-event-action="research-handbook">Quantitative Research Handbook</a>
+    </li>
+    <li>
+        <a href="https://quantit.gitbook.io/finter/v/help-center/faq/content-model-data" target="_blank"
+           data-event-category="how_to_finter" data-event-action="faq">FAQ</a></li>
+
+</ul>
+
+<h2>Jupyterhub</h2>
+<ul>
+    <li>
+        <a href="https://jupyter.snu.finter.bot" target="_blank" data-event-category="jhub" data-event-action="jhub">Jupyter</a>
+    </li>
+</ul>
+
+<h2>Content</h2>
+<ul>
+    <li>
+        <a href="https://cm.dashboard.finter.quantit.io/" target="right" data-event-category="content"
+           data-event-action="cm-search">CM Search</a></li>
+</ul>
+<h2>Alpha</h2>
+<ul>
+    <li>
+        <a href="https://model.dashboard.finter.quantit.io/" target="right" data-event-category="alpha"
+           data-event-action="alpha-simulation">Dashboard</a></li>
+    <li>
+        <a href="https://performance.dashboard.finter.quantit.io/" target="right" data-event-category="alpha"
+           data-event-action="alpha-performance">Performance</a></li>
+</ul>
+<h2>Portfolio</h2>
+<ul>
+    <li>
+        <a href="https://pfmodel.dashboard.finter.quantit.io/" target="right" data-event-category="portfolio"
+           data-event-action="portfolio-simulation">Dashboard</a></li>
+    <li>
+        <a href="https://pfperformance.dashboard.finter.quantit.io/" target="right" data-event-category="portfolio"
+           data-event-action="portfolio-performance">Performance</a></li>
+</ul>
+
+<script>
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function (e) {
+            const eventCategory = this.getAttribute('data-event-category');
+            const eventAction = this.getAttribute('data-event-action');
+
+            gtag('event', eventAction, {
+                'event_category': eventCategory
+            });
+        })
+    });
+</script>
+</body>
 </html>
